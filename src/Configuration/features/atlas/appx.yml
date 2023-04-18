@@ -5,109 +5,60 @@ privilege: TrustedInstaller
 actions:
   - !writeStatus: {status: 'Removing APPX packages'}
   
-  # Comments are for packages added back that do not get in the way of users at all, and are only dependencies
-  # Most of these apps can be reinstalled via Microsoft Store for users that need them
- 
-  # File Picker
-  # - !appx: {name: '1527c705-839a-4832-9118-54d4Bd6a0c89*', type: family}
-  
-  # UWP File Explorer
-  # - !appx: {name: 'c5e2524a-ea46-4f67-841f-6a9465d9d515*', type: family}
-  
-  # Add Folder Suggestions dialog
-  # - !appx: {name: 'F46D4000-FD22-4DB4-AC8E-4E1DDDE828FE*', type: family}
-  
-  # Windows Hello
-  # - !appx: {name: '*Microsoft.BioEnrollment*', type: family}
-  
-  # Contains winget
-  # - !appx: {name: '*Microsoft.DesktopAppInstaller*', type: family}
-  
-  # Eye Control - dependency of Mixed Reality?
-  # - !appx: {name: '*Microsoft.ECApp*', type: family}
-  
-  # Codecs
-  # - !appx: {name: '*Microsoft.WebMediaExtensions*', type: family}
-  # - !appx: {name: '*Microsoft.WebpImageExtension*', type: family}
-  # - !appx: {name: '*Microsoft.VP9VideoExtensions*', type: family}
-  # - !appx: {name: '*Microsoft.HEIFImageExtension*', type: family}
-  
-  # Dependency for Phone Link
-  # - !appx: {name: '*Microsoft.Windows.CallingShellApp*', type: family}
-  
-  # eGPUS?
-  # - !appx: {name: '*Microsoft.Windows.XGpuEjectDialog*', type: family}
-  
-  # Barcode Preview - harmless package, related to POS
-  # - !appx: {name: '*Windows.CBSPreview*', type: family}
-  
-  # - !appx: {name: '*Microsoft.Windows.AddSuggestedFoldersToLibraryDialog*', type: family}
-  # - !appx: {name: '*Microsoft.AsyncTextService*', type: family}
-  # - !appx: {name: '*Microsoft.Windows.PinningConfirmationDialog*', type: family}
-  # - !appx: {name: '*Microsoft.LockApp*', type: family}
+  # Appx Configuration for Atlas
 
-  # ------------------------------------------------------------------------------------------ #
+# Set default values for properties
+defaults:
+  timeout: 5 # Timeout for app launch and termination in seconds
+  enabled: true # Enabled by default
 
-  # Cortana
-  - !appx: {name: '*Microsoft.549981C3F5F10*', type: family}
-  
-  # MixedReality Portal - Installable via Store
-  - !appx: {name: '*Microsoft.MixedReality.Portal*', type: family}
+# Define apps to be installed in Atlas
+apps:
+  - name: "Calculator"
+    app_id: "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
+    enabled: true # Override the default value
 
-  # Assigned Access bloat
-  - !appx: {name: '*Microsoft.Windows.AssignedAccessLockApp*', type: family}
-  
-  # Installs APPX bloat
-  - !appx: {name: '*Microsoft.Windows.ContentDeliveryManager*', type: family}
-  
-  # Network connection should not be needed in OOBE
-  # Could force users to have to login to a Microsoft account in OOBE
-  # Would not be a dependancy of anything
-  - !appx: {name: '*Microsoft.Windows.OOBENetworkCaptivePortal*', type: family}
-  - !appx: {name: '*Microsoft.Windows.OOBENetworkConnectionFlow*', type: family}
+  - name: "Microsoft Store"
+    app_id: "Microsoft.WindowsStore_8wekyb3d8bbwe!App"
+    enabled: true # Override the default value
 
-  # Windows Security (Defender)
-  - !appx: {name: '*Microsoft.Windows.SecHealthUI*', type: family}
-  # SmartScreen
-  - !appx: {name: '*Microsoft.Windows.Apprep.ChxApp*', type: family}
+  - name: "Mail"
+    app_id: "microsoft.windowscommunicationsapps_8wekyb3d8bbwe!microsoft.windowslive.mail"
+    enabled: true # Override the default value
 
-  # Mail and Calendar
-  - !appx: {name: '*microsoft.windowscommunicationsapps*', type: family}
+  - name: "Calendar"
+    app_id: "microsoft.windowscommunicationsapps_8wekyb3d8bbwe!microsoft.windowslive.calendar"
+    enabled: true # Override the default value
 
-  # Take a Test
-  - !appx: {name: '*Microsoft.Windows.SecureAssessmentBrowser*', type: family}
+  - name: "Photos"
+    app_id: "Microsoft.Windows.Photos_8wekyb3d8bbwe!App"
+    enabled: true # Override the default value
 
-  - !appx: {name: '*Microsoft.Advertising.Xaml*', type: family}
-  - !appx: {name: '*Microsoft.BingWeather*', type: family}
-  - !appx: {name: '*Microsoft.GetHelp*', type: family}
-  - !appx: {name: '*Microsoft.Getstarted*', type: family}
-  - !appx: {name: '*Microsoft.Microsoft3DViewer*', type: family}
-  - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family}
-  - !appx: {name: '*microsoft.microsoftedge.stable*', type: family}
-  - !appx: {name: '*Microsoft.MicrosoftEdgeDevToolsClient*', type: family}
-  - !appx: {name: '*Microsoft.MicrosoftOfficeHub*', type: family}
-  - !appx: {name: '*Microsoft.MicrosoftSolitaireCollection*', type: family}
-  - !appx: {name: '*Microsoft.MicrosoftStickyNotes*', type: family}
-  - !appx: {name: '*Microsoft.MSPaint*', type: family}
-  - !appx: {name: '*Microsoft.Office.OneNote*', type: family}
-  - !appx: {name: '*Microsoft.People*', type: family}
-  - !appx: {name: '*Microsoft.Windows.PeopleExperienceHost*', type: family}
-  - !appx: {name: '*Microsoft.ScreenSketch*', type: family}
-  - !appx: {name: '*Microsoft.SkypeApp*', type: family}
-  - !appx: {name: '*Microsoft.Wallet*', type: family}
-  - !appx: {name: '*Microsoft.Windows.NarratorQuickStart*', type: family}
-  - !appx: {name: '*Microsoft.Windows.ParentalControls*', type: family}
-  - !appx: {name: '*Microsoft.Windows.Photos*', type: family}
-  - !appx: {name: '*Microsoft.WindowsAlarms*', type: family}
-  - !appx: {name: '*Microsoft.WindowsCamera*', type: family}
-  - !appx: {name: '*Microsoft.WindowsFeedbackHub*', type: family}
-  - !appx: {name: '*Microsoft.WindowsMaps*', type: family}
-  - !appx: {name: '*Microsoft.WindowsSoundRecorder*', type: family}
-  - !appx: {name: '*Microsoft.YourPhone*', type: family}
-  - !appx: {name: '*Microsoft.ZuneMusic*', type: family}
-  - !appx: {name: '*Microsoft.ZuneVideo*', type: family}
+  - name: "Voice Recorder"
+    app_id: "Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe!App"
+    timeout: 10 # Override the default timeout
 
-  # Necessary to refresh start menu entries etc.
-  - !appx: {operation: clearCache, name: '*Client.CBS*'}
-  - !appx: {operation: clearCache, name: '*StartMenuExperienceHost*'}
-  - !appx: {operation: clearCache, name: '*Windows.Search*'}
+
+# Define apps to be uninstalled from Atlas
+uninstall:
+  - "Microsoft.3DBuilder"
+  - "Microsoft.BingNews"
+  - "Microsoft.BingSports"
+  - "Microsoft.BingWeather"
+  - "Microsoft.GetHelp"
+  - "Microsoft.GetStarted"
+  - "Microsoft.Messaging"
+  - "Microsoft.Microsoft3DViewer"
+  - "Microsoft.MicrosoftEdge"
+  - "Microsoft.MicrosoftEdgeDevToolsClient"
+  - "Microsoft.MicrosoftOfficeHub"
+  - "Microsoft.MicrosoftSolitaireCollection"
+  - "Microsoft.MSPaint"
+  - "Microsoft.Office.OneNote"
+  - "Microsoft.OneConnect"
+  - "Microsoft.OneDrive"
+  - "Microsoft.People"
+  - "Microsoft.Print3D"
+  - "Microsoft.SkypeApp"
+  - "Microsoft.Wallet"
+  - "Microsoft.Windows.Photos"
