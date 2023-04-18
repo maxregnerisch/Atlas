@@ -1,4 +1,46 @@
 ---
+# Atlas Configuration
+# --------------------
+
+# Define the Atlas version
+atlas_version: 2.0
+
+# Define the ROS node configuration
+RosParams:
+  # Specify the node name for the talker node
+  TalkerNodeName: talker
+  # Specify the node name for the listener node
+  ListenerNodeName: listener
+
+# Define the MROS configuration
+MrosParams:
+  # Specify the topic name for the talker node
+  TalkerTopicName: my_topic
+  # Specify the launch file for the talker node
+  TalkerLaunchFile: launch/talker.launch
+  # Specify the launch file for the listener node
+  ListenerLaunchFile: launch/listener.launch
+
+# Define the demo node configuration
+DemoParams:
+  # Specify the launch file for the demo node
+  DemoLaunchFile: launch/demo.launch
+  # Specify the dependencies for the demo node
+  DemoDependencies:
+    - Rviz2
+    - Joy
+
+# Define the unit test configuration
+UnitTestParams:
+  # Specify the launch file for the unit test node
+  UnitTestLaunchFile: launch/unittest.launch
+  # Specify the name of the test suite
+  UnitTestSuiteName: my_test_suite
+  # Specify the dependencies for the unit test node
+  UnitTestDependencies:
+    - GTest
+    - Rviz2
+    
 title: Configuration
 description: Applies the Atlas configuration
 privilege: TrustedInstaller
